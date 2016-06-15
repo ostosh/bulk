@@ -1,7 +1,7 @@
 'use strict'
 
 var cp = require('child_process')
-var spawn = cp.spawn
+var spawn = require('cross-spawn')
 var exec = cp.exec
 
 module.exports = function () {
