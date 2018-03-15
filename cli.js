@@ -3,7 +3,7 @@
 'use strict'
 
 var minimist = require('minimist')
-var spawn = require('child_process').spawn
+var spawn = require('cross-spawn')
 var bulk = require.resolve('./bulk')
 
 var argv = minimist(process.argv.slice(2))

@@ -5,7 +5,7 @@
 var split = require('split')
 var through = require('through2')
 var minimist = require('minimist')
-var spawn = require('child_process').spawn
+var spawn = require('cross-spawn')
 var parse = require('shell-quote').parse
 var fs = require('fs')
 

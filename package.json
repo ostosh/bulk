@@ -12,6 +12,7 @@
   },
   "author": "Tim Oxley <secoif@gmail.com>",
   "dependencies": {
+    "cross-spawn": "^4.0.0",
     "minimist": "^1.2.0",
     "shell-quote": "^1.6.1",
     "split": "^1.0.0",

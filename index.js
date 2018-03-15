@@ -1,8 +1,9 @@
 'use strict'
 
 var cp = require('child_process')
-var spawn = cp.spawn
+var spawn = require('cross-spawn')
 var exec = cp.exec
+var isWindows = (process.platform === 'win32')
 
 module.exports = function () {
   if (arguments.length >= 3) return bulkExec.apply(this, arguments)
@@ -23,6 +24,9 @@ function bulkExec (dirs, cmd, opts, fn) {
   if (!cmd) throw new Error('command required: ' + cmd)
   opts = opts || {}
   var execCmd = 'echo ' + dirs.join(' ') + ' | ' + require.resolve('./bulk')
+  if (isWindows) {
+    execCmd = 'echo ' + dirs.join(' ') + ' | node ' + require.resolve('./bulk')
+  }
   if ('onlyDirs' in opts && !opts.onlyDirs) execCmd += ' --no-only-dirs'
   return exec(execCmd + ' -c ' + cmd, opts, fn)
 }
